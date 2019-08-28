@@ -1,0 +1,14 @@
+Package: replicateOutliers
+Type: Package
+Title: Outlier Detection Methods for Replicated Data
+Version: 1.0.0
+Date: 2019-08-27
+Author: Matthew S. Smith
+Maintainer: Matthew S. Smith <Matthew.Smith2@ucsf.edu>
+Description: Probability-based outlier detection methods for replicated data. See paper.
+License: GPL-2
+RoxygenNote: 6.1.0
+Suggests: testthat, knitr, ggplot2, gridExtra, viridis, dplyr
+VignetteBuilder: knitr
+Encoding: UTF-8
+Imports: VGAM, extremevalues, flexsurv, cubature, parallel
