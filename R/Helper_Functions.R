@@ -30,7 +30,7 @@ b_helper <- function(x, y) {sqrt(2)*x/y}
 #' @param lam_2 The (positive) parameter for the second replicate's exponential distribution
 #' @return The joint probability of observing Delta <= d and Z <= z
 #' @export
-F_exp_asym <- function(d, z, lam_1, lam_2) { #Joint CDF with asymmetric exponential assumption
+F_exp_asym <- function(d, z, lam_1, lam_2) {
   if(z < 0){
     return(0)
   }else if(d <= 0 && z >= 0 && z <= sqrt(2)){
@@ -53,11 +53,31 @@ F_exp_asym <- function(d, z, lam_1, lam_2) { #Joint CDF with asymmetric exponent
 }
 
 
-
-
-
-
-
+#' Joint CDF Under Symmetric Exponential Assumption
+#' 
+#' @description This function is the joint CDF of Delta and Zeta assuming the underlying data X_1 and X_2 follow independent and identically distributed exponential distributions.
+#' @param d The aboslute difference between two replicates
+#' @param z The coefficient of variation between two replicates
+#' @param lambda The (positive) parameter for the replicates's exponential distributions
+#' @return The joint probability of observing Delta <= d and Z <= z
+#' @export
+F_exp_sym <- function(d, z, lambda) {
+  if(z < 0){
+    return(0)
+  }else if(d <= 0 && z >= 0 && z <= sqrt(2)){
+    return((1-g_helper(z))*exp(lambda*(1+g_helper(z))*d/(1-g_helper(z)))/(2*(1+g_helper(z))))
+  }else if(d <= 0 && z > sqrt(2)){
+    return(exp(lambda*d)/2)
+  }else if(d > 0 && z >= 0 && z <= sqrt(2)){
+    return(
+      lambda*exp(-lambda*b_helper(d,z))*d/2 +
+        (1/2-1/(g_helper(z)+1))*(-1+exp(-lambda*b_helper(d,z))+lambda*b_helper(d,z)*exp(-lambda*b_helper(d,z))) +
+        (1-g_helper(z))/(2*(1+g_helper(z)))
+    )
+  }else if(d > 0 && z > sqrt(2)){
+    return(1-exp(-lambda*d)/2)
+  }
+}
 
 
 

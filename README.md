@@ -9,7 +9,7 @@ each data point, we can find which sets of measurements are so different from
 each other that we can call them outliers. We use the absolute difference
 <img src="https://latex.codecogs.com/gif.latex?\Delta"/>
 and coefficient of variation
-<img src="https://latex.codecogs.com/gif.latex?\Z"/>
+<img src="https://latex.codecogs.com/gif.latex?Z"/>
 (Zeta, a kind of relative difference)
 for each pair of replicates to make out determinations.
 
@@ -21,7 +21,7 @@ for non-outlier,
 for large
 <img src="https://latex.codecogs.com/gif.latex?\Delta"/>
 but not
-<img src="https://latex.codecogs.com/gif.latex?\Z"/>,
+<img src="https://latex.codecogs.com/gif.latex?Z"/>,
 and
 <img src="https://latex.codecogs.com/gif.latex?2"/>
 for
