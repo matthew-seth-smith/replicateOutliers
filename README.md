@@ -1,1 +1,20 @@
-{Fill in README.md}
+[![Build Status](https://travis-ci.org/matthew-seth-smith/replicateOutliers.svg?branch=master)](https://travis-ci.org/matthew-seth-smith/replicateOutliers)
+
+replicateOutliers
+===
+
+This package provides functions for outlier detection in the setting of
+replicated data. Assuming we have multiple measurements (called "replicates") of
+each data point, we can find which sets of measurements are so different from
+each other that we can call them outliers. We use the absolute difference
+$\Delta$ and coefficient of variation $\Zeta$ (a kind of relative difference)
+for each pair of replicates to make out determinations.
+
+The function `outlier_DZ` returns a numeric identifier for the outlier status
+($0$ for non-outlier, $1$ for large $\Delta$ but not $\Zeta$, and $2$ for
+outlier). The other main functions are `q_exp_joint_DZ`, `q_exp_marg_DZ`,
+`q_gg_joint_DZ`, and `q_gg_marg_DZ`. Their outputs are probabilities called
+$q$-values that we determine using joint or marginal probability distributions.
+
+Please see {CITE PAPER} for further details and the derivations of these
+methods.
