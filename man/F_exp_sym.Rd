@@ -4,14 +4,14 @@
 \alias{F_exp_sym}
 \title{Joint CDF Under Symmetric Exponential Assumption}
 \usage{
-F_exp_sym(d, z, lambda)
+F_exp_sym(d, z, lam)
 }
 \arguments{
 \item{d}{The aboslute difference between two replicates}
 
 \item{z}{The coefficient of variation between two replicates}
 
-\item{lambda}{The (positive) parameter for the replicates's exponential distributions}
+\item{lam}{The (positive) parameter for the replicates's exponential distributions}
 }
 \value{
 The joint probability of observing Delta <= d and Z <= z
