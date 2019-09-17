@@ -3,6 +3,11 @@
 language: R
 sudo: false
 cache: packages
+addons:
+  apt:
+    packages:
+    - tcl8.5-dev
+    - tk8.5-dev
 r_packages:
   - covr
   - testthat
