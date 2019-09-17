@@ -32,3 +32,6 @@ that we determine using joint or marginal probability distributions.
 
 Please see {CITE PAPER} for further details and the derivations of these
 methods.
+
+If Travis-CI has an error before completing the initial build, it is because R
+for Travis does not suppor the `tcltk` package and I cannot get it to work.

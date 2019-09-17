@@ -1,9 +1,5 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
-before_install:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-
 language: R
 sudo: false
 cache: packages
@@ -15,3 +11,4 @@ addons:
 r_packages:
   - covr
   - testthat
+  - tcltk
