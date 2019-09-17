@@ -11,3 +11,4 @@ addons:
 r_packages:
   - covr
   - testthat
+  - tcltk
