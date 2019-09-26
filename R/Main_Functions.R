@@ -306,12 +306,12 @@ q_gg_marg_DZ <- function(X_1, X_2, p_theta=0.05, p_kappa=0.05, k=1, n_cores=dete
   Z <- sqrt(2)*abs(X_1-X_2)/(X_1+X_2) #Find the coefficient of variation
   
   # MLE for X_1 and X_2
-  fit_gg_1 <- flexsurvreg(Surv(X_1) ~ 1, anc=list(), dist="gengamma.orig")
+  fit_gg_1 <- flexsurvreg(Surv(X_1) ~ 1, dist="gengamma.orig")
   coef_1 <- exp(fit_gg_1$coefficients) #Need to exponentiate
   alpha_gg_1est <- coef_1[3]
   beta_1est <- coef_1[2]
   c_gg_1est <- coef_1[1]
-  fit_gg_2 <- flexsurvreg(Surv(X_2) ~ 1, anc=list(), dist="gengamma.orig")
+  fit_gg_2 <- flexsurvreg(Surv(X_2) ~ 1, dist="gengamma.orig")
   coef_2 <- exp(fit_gg_2$coefficients) #Need to exponentiate
   alpha_gg_2est <- coef_2[3]
   beta_2est <- coef_2[2]
