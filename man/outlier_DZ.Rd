@@ -8,9 +8,9 @@ outlier_DZ(D, Z, type = "weibull", p_theta = 0.05, p_kappa = 0.05,
   k = 1, t = 0.01, b = 0.01, N_u = 0.01, N_l = 0.01)
 }
 \arguments{
-\item{D}{The absolute difference (Delta) between two replicates: D = X_1 - X_2}
+\item{D}{The absolute difference (Delta) between two vectors of (positive) replicated data: D = X_1 - X_2}
 
-\item{Z}{The coefficient of variation (Zeta) between two replicates: Z = sqrt(2) * abs(X_1 - X_2) / (X_1 + X_2)}
+\item{Z}{The coefficient of variation (Zeta) between two vectors of (positive) replicated data: Z = sqrt(2) * abs(X_1 - X_2) / (X_1 + X_2)}
 
 \item{type}{The distribution to which we fit Zeta. By default this value is "weibull", but we can also set it to "lognormal"}
 
@@ -18,7 +18,7 @@ outlier_DZ(D, Z, type = "weibull", p_theta = 0.05, p_kappa = 0.05,
 
 \item{p_kappa}{We use the (1-p_kappa)*100\% two-sided confidence interval for the asymmetry parameter kappa in the Asymmetric Laplace Distribution to which we fit Delta. If this interval for log(kappa) contains 0, then we set kappa = 0 and use a Symmetric Laplace Distribution for Delta. We set p_kappa = 0.05 by default}
 
-\item{k}{The number of standard deviations about the center of the Asymmetric Laplace Distribution for Delta that we use to define the "central band." We set k = 1 by default}
+\item{k}{The number of standard deviations about the center (mean) of the Asymmetric Laplace Distribution for Delta that we use to define the "central band." We set k = 1 by default}
 
 \item{t}{We remove the top t*100\% of points when fitting the coefficient of variation Zeta values to a Weibull or lognormal distribution, so that these points do not cause problems when fitting the distribution. We set t = 0.01 by default}
 
@@ -32,7 +32,7 @@ outlier_DZ(D, Z, type = "weibull", p_theta = 0.05, p_kappa = 0.05,
 A numerical vector of equal length to the input D and Z vectors, with values 0 for points in the central band, 1 for points in the "wings" with small Zeta, and 2 for outliers
 }
 \description{
-This function implements the original method for outlier detection. It first fits the aboslute difference Delta between two replicates to an Asymmetric Laplace Distribution using MLE. Then among the points outside of some central band, we fit their values for the coefficient of variation Zeta to a Weibull (or lognormal) distribution (also using MLE). The points from this set with significantly large Zeta values are outliers.
+This function implements the original method for outlier detection among replicated data. It first fits the aboslute difference Delta between two replicates to an Asymmetric Laplace Distribution using MLE. Then among the points outside of some central band, we fit their values for the coefficient of variation Zeta to a Weibull (or lognormal) distribution (also using MLE). The points from this set with significantly large Zeta values are outliers.
 }
 \examples{
 # Assume X_1 and X_2 are positive data vectors of the same length. These are the replicates

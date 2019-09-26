@@ -4,9 +4,10 @@ replicateOutliers
 ===
 
 This package provides functions for outlier detection in the setting of
-replicated data. Assuming we have multiple measurements (called "replicates") of
-each data point, we can find which sets of measurements are so different from
-each other that we can call them outliers. We use the absolute difference
+replicated data. Assuming we have multiple independent measurements (called
+"replicates") of each data point, we can find which sets of measurements are so
+different from each other that we can call them outliers. We use the absolute
+difference
 <img src="https://latex.codecogs.com/gif.latex?\Delta"/>
 and coefficient of variation
 <img src="https://latex.codecogs.com/gif.latex?Z"/>
