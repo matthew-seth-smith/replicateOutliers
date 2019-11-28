@@ -45,14 +45,15 @@ df_gg <- data.frame(
 )
 df_gg$D <- df_gg$X_1 - df_gg$X_2
 df_gg$Z <- sqrt(2) * abs(df_gg$X_1 - df_gg$X_2) / (df_gg$X_1 + df_gg$X_2)
-df_gg$outlier_orig <- outlier_DZ(df_gg$D, df_gg$Z)
+# df_gg$outlier_orig <- outlier_DZ(df_gg$D, df_gg$Z) #Cannot use this as long as we take out outlier_DZ
 df_gg$q_exp_j <- q_exp_joint_DZ(df_gg$D, df_gg$Z)
 df_gg$q_exp_m <- q_exp_marg_DZ(df_gg$D, df_gg$Z)
 
 data(Sim_GG) #The data.frame contained in the package
-test_that("The function outlier_DZ works as expected.",{
-  expect_equivalent(df_gg$outlier_orig, Sim_GG$outlier_orig, tolerance=1e-5)
-})
+# test_that("The function outlier_DZ works as expected.",{
+  # expect_equivalent(df_gg$outlier_orig, Sim_GG$outlier_orig, tolerance=1e-5)
+# })
+# Cannot use this as long as we take out outlier_DZ
 test_that("The function q_exp_joint_DZ works as expected.",{
   expect_equivalent(df_gg$q_exp_j, Sim_GG$q_exp_j, tolerance=1e-5)
 })
