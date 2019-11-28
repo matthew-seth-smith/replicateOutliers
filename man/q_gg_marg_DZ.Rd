@@ -28,7 +28,8 @@ This function implements the marginal generalized gamma method for outlier detec
 }
 \examples{
 # Assume X_1 and X_2 are positive data vectors of the same length. These are the replicates
-df <- data.frame(X_1=X_1, X_2=X_2)
+data(Sim_GG)
+df <- data.frame(X_1=Sim_GG$X_1, X_2=Sim_GG$X_2)
 # The function q_gg_marg_DZ calculates D and Z for us
 df$q_gg_m <- q_gg_marg_DZ(df$X_1, df$X_2)
 }

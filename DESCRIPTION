@@ -11,4 +11,4 @@ RoxygenNote: 6.1.0
 Suggests: testthat, knitr, ggplot2, gridExtra, viridis, dplyr
 VignetteBuilder: knitr
 Encoding: UTF-8
-Imports: VGAM, flexsurv, cubature, parallel
+Imports: VGAM, flexsurv, survival, cubature, parallel

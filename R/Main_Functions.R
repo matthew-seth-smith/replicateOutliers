@@ -16,7 +16,8 @@
 #' @import VGAM
 #' @examples
 #' # Assume X_1 and X_2 are positive data vectors of the same length. These are the replicates
-#' df <- data.frame(X_1=X_1, X_2=X_2)
+#' data(Sim_GG)
+#' df <- data.frame(X_1=Sim_GG$X_1, X_2=Sim_GG$X_2)
 #' df$D <- df$X_1 - df$X_2
 #' df$Z <- sqrt(2) * abs(df$X_1 - df$X_2) / (df$X_1 + df$X_2)
 #' df$q_exp_j <- q_exp_joint_DZ(df$D, df$Z)
@@ -78,7 +79,8 @@ q_exp_joint_DZ <- function(D, Z, p_theta=0.05, p_kappa=0.05){
 #' @import VGAM
 #' @examples
 #' # Assume X_1 and X_2 are positive data vectors of the same length. These are the replicates
-#' df <- data.frame(X_1=X_1, X_2=X_2)
+#' data(Sim_GG)
+#' df <- data.frame(X_1=Sim_GG$X_1, X_2=Sim_GG$X_2)
 #' df$D <- df$X_1 - df$X_2
 #' df$Z <- sqrt(2) * abs(df$X_1 - df$X_2) / (df$X_1 + df$X_2)
 #' df$q_exp_m <- q_exp_marg_DZ(df$D, df$Z)
@@ -150,11 +152,13 @@ q_exp_marg_DZ <- function(D, Z, p_theta=0.05, p_kappa=0.05, k=1){
 #' @param n_cores This function works by numerically integrating the joint PDF for each data point. To speed up this process, we run this process in parallel (using the package parallel), which requires specifying the number of cores (n_cores) on the computer to use. By default, we use all but one core on the machine (with the remaining one free for other functions).
 #' @return A numerical vector of equal length to the input X_1 and X_2 vectors. Using D = X_1 - X_2, Z = sqrt(2) * abs(X_1 - X_2) / (X_1 + X_2), and (d,z) for each (X_1,X_2) data point, we get the outlier probability q = P((D <= d, z <= Z <= sqrt(2)) | d < theta OR (D >= d, z <= Z <= sqrt(2)) | d >= theta) for each (d,z)
 #' @import flexsurv
+#' @import survival
 #' @import cubature
 #' @import parallel
 #' @examples
 #' # Assume X_1 and X_2 are positive data vectors of the same length. These are the replicates
-#' df <- data.frame(X_1=X_1, X_2=X_2)
+#' data(Sim_GG)
+#' df <- data.frame(X_1=Sim_GG$X_1, X_2=Sim_GG$X_2)
 #' # The function q_gg_joint_DZ calculates D and Z for us
 #' df$q_gg_j <- q_gg_joint_DZ(df$X_1, df$X_2)
 #' @export
@@ -207,12 +211,14 @@ q_gg_joint_DZ <- function(X_1, X_2, n_cores=detectCores()-1){ #Joint method
 #' @param n_cores This function works by numerically integrating the joint PDF for each data point. To speed up this process, we run this process in parallel (using the package parallel), which requires specifying the number of cores (n_cores) on the computer to use. By default, we use all but one core on the machine (with the remaining one free for other functions).
 #' @return A numerical vector of equal length to the input X_1 and X_2 vectors. Using D = X_1 - X_2, Z = sqrt(2) * abs(X_1 - X_2) / (X_1 + X_2), and (d,z) for each (X_1,X_2) data point, we get the marginal probability q = P(z <= Z <= sqrt(2)) if (d,z) is not in the middle band and the assigned value 1 if it is in the middle band
 #' @import flexsurv
+#' @import survival
 #' @import VGAM
 #' @import cubature
 #' @import parallel
 #' @examples
 #' # Assume X_1 and X_2 are positive data vectors of the same length. These are the replicates
-#' df <- data.frame(X_1=X_1, X_2=X_2)
+#' data(Sim_GG)
+#' df <- data.frame(X_1=Sim_GG$X_1, X_2=Sim_GG$X_2)
 #' # The function q_gg_marg_DZ calculates D and Z for us
 #' df$q_gg_m <- q_gg_marg_DZ(df$X_1, df$X_2)
 #' @export

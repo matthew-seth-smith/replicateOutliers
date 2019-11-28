@@ -23,7 +23,8 @@ This function implements the joint exponential method for outlier detection amon
 }
 \examples{
 # Assume X_1 and X_2 are positive data vectors of the same length. These are the replicates
-df <- data.frame(X_1=X_1, X_2=X_2)
+data(Sim_GG)
+df <- data.frame(X_1=Sim_GG$X_1, X_2=Sim_GG$X_2)
 df$D <- df$X_1 - df$X_2
 df$Z <- sqrt(2) * abs(df$X_1 - df$X_2) / (df$X_1 + df$X_2)
 df$q_exp_j <- q_exp_joint_DZ(df$D, df$Z)
