@@ -24,5 +24,5 @@ This function implements the joint generalized gamma method for outlier detectio
 data(Sim_GG)
 df <- data.frame(X_1=Sim_GG$X_1, X_2=Sim_GG$X_2)
 # The function q_gg_joint_DZ calculates D and Z for us
-df$q_gg_j <- q_gg_joint_DZ(df$X_1, df$X_2)
+# df$q_gg_j <- q_gg_joint_DZ(df$X_1, df$X_2) #Only run this on a cluster!
 }
