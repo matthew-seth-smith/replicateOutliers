@@ -52,3 +52,6 @@ Travis-CI is throwing errors for this build (as does loading this function on
 another computer) because of conflicts between the `gompertz` functions used by
 the packages `VGAM` and `flexsurv`. I do not believe this package uses the
 Gompertz Distribution, so this should not be a problem.
+
+This project was supported by the Undergraduate Summer Research Fellowship at
+Fox Chase Cancer Center during the summer of 2018.
