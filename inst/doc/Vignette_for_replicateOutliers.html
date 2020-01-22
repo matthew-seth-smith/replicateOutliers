@@ -165,11 +165,9 @@ set.seed(1729)
 # I removed some of the steps I used in making the original Sim_GG data.frame, so this seed will not
 # exactly match the one used to make Sim_GG
 
-library(devtools) #For document
-document()</code></pre>
-<pre><code>## Writing NAMESPACE
-## Writing NAMESPACE</code></pre>
-<pre class="r"><code>library(replicateOutliers) #To get the functions for these methods
+# library(devtools) #For document
+# document()
+# library(replicateOutliers) #To get the functions for these methods
 library(flexsurv) #For GG functions
 library(ggplot2) #For ggplot plotting functions
 
@@ -300,8 +298,9 @@ F_Z(\zeta) = \left\{ \begin{array}{cl}
 <p>Notice that <span class="math inline">\(\Delta\)</span> is marginally distributed as a symmetric (asymmetric) Laplace random variable in the symmetric (asymmetric) case, as we would expect. We now know that <span class="math inline">\(Z\)</span> is marginally uniformly distributed over <span class="math inline">\([0,\sqrt{2}]\)</span> in the symmetric case, and that its marginal distribution in the asymmetric case appears to be a new beast.</p>
 <p>The function <code>q_exp_joint_DZ</code> does all the steps above to calculate <span class="math inline">\(q(\delta,\zeta)\)</span> for each point of <span class="math inline">\((\Delta,Z)\)</span>-data: fitting the absolute difference <span class="math inline">\(\Delta\)</span> to an asymmetric Laplace distribution, determining whether we are in the symmetric or asymmetric case, calculating the MLE for <span class="math inline">\(\lambda\)</span> or <span class="math inline">\((\lambda_1,\lambda_2)\)</span>, and plugging these MLE into the joint and marginal CDFs to get <span class="math inline">\(q(\delta,\zeta)\)</span> for every point. It also checks to see if there is an offset to <span class="math inline">\(\Delta\)</span> by some parameter <span class="math inline">\(\theta \in \mathbb{R}\)</span>, again using the <span class="math inline">\(95\%\)</span>-confidence interval to test whether <span class="math inline">\(\theta \neq 0\)</span> is significant. There are parameters for <code>q_exp_joint_DZ</code> to change the <span class="math inline">\(p\)</span>-values for these tests, but we can leave them as the default values of <span class="math inline">\(0.05\)</span>.</p>
 <p>Let’s apply <code>q_exp_joint_DZ</code> to our simulated data and color the plot by the <span class="math inline">\(q\)</span>-value. The color scheme comes from the package <code>viridis</code> and is supposed to be easier for people who are colorblind to decipher.</p>
-<pre class="r"><code>library(viridis) #For scale_colour_viridis in ggplot
-df$q_exp_joint &lt;- q_exp_joint_DZ(df$D, df$Z)</code></pre>
+<pre class="r"><code>library(viridis) #For scale_colour_viridis in ggplot</code></pre>
+<pre><code>## Loading required package: viridisLite</code></pre>
+<pre class="r"><code>df$q_exp_joint &lt;- q_exp_joint_DZ(df$D, df$Z)</code></pre>
 <pre><code>## Warning in vglm.fitter(x = x, y = y, w = w, offset = offset, Xm2 =
 ## Xm2, : some quantities such as z, residuals, SEs may be inaccurate due to
 ## convergence at a half-step</code></pre>
